@@ -100,3 +100,6 @@ class WoodenDuck extends Duck{
 > Kekurangan:
 > - Ketika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut harus diterapkan di semua kelas turunan, yang dapat merepotkan dan memerlukan perubahan pada banyak bagian kode.
 > - Tidak ada fleksibilitas dalam mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
+
+### Tahap 2. Menggunakan Interface. (Rubah kode pada tahap 1 menjadi seperti berikut)
+1. Buat sebuah interface Quackable untuk perilaku bersuara.

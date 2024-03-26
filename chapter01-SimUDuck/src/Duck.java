@@ -1,8 +1,8 @@
-abstract class Duck {
-    void quack() {
-        System.out.println("Qwek Qwek");
-    }
+interface Quackable {
+    void quack();
+}
 
+abstract class Duck {
     void swim() {
         System.out.println("Berenang");
     }
