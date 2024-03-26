@@ -104,3 +104,104 @@ class WoodenDuck extends Duck{
 ### Tahap 2. Menggunakan Interface. (Rubah kode pada tahap 1 menjadi seperti berikut)
 1. Buat sebuah interface Quackable untuk perilaku bersuara.
 2. Buat sebuah interface Flyable untuk perilaku terbang.
+3. Implementasikan kedua interface tersebut dalam kelas Duck dan kelas-kelas turunannya.
+```
+interface Quackable {
+    void quack();
+}
+
+interface Flyable {
+    void fly();
+}
+
+abstract class Duck {
+    abstract void display();
+
+    void swim() {
+        System.out.println("Berenang");
+    }
+}
+
+class MallardDuck extends Duck implements Quackable, Flyable {
+    @Override
+    public void quack() {
+        System.out.println("Qwek Qwek");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Terbang");
+    }
+    @Override
+    void display() {
+        System.out.println("Tampilan MallardDuck");
+    }
+}
+
+class RedheadDuck extends Duck implements Quackable, Flyable {
+    @Override
+    public void quack() {
+        System.out.println("Qwek Qwek");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Terbang");
+    }
+
+    @Override
+    void display() {
+        System.out.println("Tampilan RedHeadDuck");
+    }
+}
+
+class RubberDuck extends Duck implements Quackable {
+    @Override
+    public void quack() {
+        System.out.println("Squeak");
+    }
+    @Override
+    void display() {
+        System.out.println("Tampilan RubberDuck");
+    }
+}
+
+class WoodenDuck extends Duck {
+    @Override
+    void display() {
+        System.out.println("Tampilan WoodenDuck");
+    }
+}
+
+class ToyDuck extends Duck implements Flyable {
+    @Override
+    public void fly() {
+        System.out.println("Terbang seperti mainan");
+    }
+
+    @Override
+    void display() {
+        System.out.println("Tampilan ToyDuck");
+    }
+}
+```
+Dalam skenarion ini:
+- MallardDuck mengimplementasikan kedua antarmuka Quackable dan Flyable, memungkinkannya untuk bersuara quack dan terbang.
+- RubberDuck hanya mengimplementasikan Quackable, karena tidak boleh terbang.
+- WoodenDuck tidak mengimplementasikan antarmuka ini, mengimplikasikan bahwa ia tidak bersuara quack atau terbang. Sekarang, katakanlah kita memperkenalkan jenis bebek baru, ToyDuck, yang mirip dengan RubberDuck tetapi juga bisa terbang.
+```
+class ToyDuck extends Duck implements Flyable {
+    public void fly() {
+        System.out.println("Terbang seperti mainan");
+    }
+}
+```
+Dalam kasus ini, kita harus menduplikasi implementasi metode fly() dari Flyable baik di ToyDuck maupun MallardDuck. Ini karena antarmuka Java tidak mengizinkan penggunaan ulang kode, dan setiap kelas yang mengimplementasikan sebuah antarmuka harus memberikan implementasi sendiri. Duplikasi ini melanggar prinsip penggunaan code reuse, karena kita harus mengulang kode yang sama di beberapa tempat, meningkatkan overhead pemeliharaan dan kemungkinan memperkenalkan bug.Selain itu, jika perilaku fly() perlu diubah suatu saat, kita harus memperbarui di beberapa tempat, yang dapat berpotensi menyebabkan kesalahan dan membutuhkan waktu yang lebih lama.
+> Analisis:
+> - Menggunakan interface untuk mendefinisikan perilaku bersuara dan terbang membuat kode lebih modular.
+> - Menerapkan polimorfisme dengan menggunakan interface, yang memungkinkan berbagai implementasi perilaku bersuara dan terbang.
+> - Kelas turunan dapat mengimplementasikan lebih dari satu perilaku bersuara atau terbang jika diperlukan.
+
+> Kekurangan:
+> - Masih terbatas dalam fleksibilitas saat ingin mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
+> - Jika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut masih perlu diterapkan pada semua kelas turunan yang terkait.
