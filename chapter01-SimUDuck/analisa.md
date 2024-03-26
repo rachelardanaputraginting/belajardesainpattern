@@ -209,5 +209,4 @@ Dalam kasus ini, kita harus menduplikasi implementasi metode fly() dari Flyable 
 ### Tahap 3. Menggunakan Strategy Pattern (Rubah kode pada tahap 2 menjadi seperti berikut)
 1. Buat sebuah interface QuackBehavior untuk perilaku bersuara.
 2. Buat sebuah interface FlyBehavior untuk perilaku terbang.
-
-
+3. Implementasikan kelas-kelas konkrit yang mengimplementasikan interface-interface tersebut.
