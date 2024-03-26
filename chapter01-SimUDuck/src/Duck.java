@@ -2,6 +2,10 @@ interface QuackBehavior {
     void quack();
 }
 
+interface FlyBehavior {
+    void fly();
+}
+
 abstract class Duck {
     void swim() {
         System.out.println("Berenang");
