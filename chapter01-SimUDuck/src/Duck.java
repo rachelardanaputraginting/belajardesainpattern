@@ -2,33 +2,33 @@ interface Quackable {
     void quack();
 }
 
+interface Flyable {
+    void fly();
+}
+
 abstract class Duck {
     void swim() {
         System.out.println("Berenang");
     }
 
     abstract void display();
-
-    void fly(){
-        System.out.println("Terbang");
-    }
 }
 
-class MallardDuck extends Duck{
+class MallardDuck extends Duck {
     @Override
     void display() {
         System.out.println("Tampilan MallardDuck");
     }
 }
 
-class RedHeadDuck extends Duck{
+class RedHeadDuck extends Duck {
     @Override
     void display() {
         System.out.println("Tampilan RedHeadDuck");
     }
 }
 
-class RubberDuck extends Duck{
+class RubberDuck extends Duck {
     @Override
     void display() {
         System.out.println("Tampilan RubberDuck");
@@ -45,7 +45,7 @@ class RubberDuck extends Duck{
     }
 }
 
-class WoodenDuck extends Duck{
+class WoodenDuck extends Duck {
     @Override
     void display() {
         System.out.println("Tampilan WoodenDuck");

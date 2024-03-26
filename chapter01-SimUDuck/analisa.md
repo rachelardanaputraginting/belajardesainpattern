@@ -103,3 +103,4 @@ class WoodenDuck extends Duck{
 
 ### Tahap 2. Menggunakan Interface. (Rubah kode pada tahap 1 menjadi seperti berikut)
 1. Buat sebuah interface Quackable untuk perilaku bersuara.
+2. Buat sebuah interface Flyable untuk perilaku terbang.
