@@ -1,27 +1,33 @@
 # Chapter 01 - Strategy Pattern
 
 ## Tujuan
-- Memahami konsep Strategy Pattern dan manfaatnya dalam desain perangkat lunak
-- Mengimplementasikan Strategy Pattern dalam bahasa pemrograman Java.
-- Mampu mengidentifikasi situasi yang cocok untuk penggunaan Strategy Pattern
+
+-   Memahami konsep Strategy Pattern dan manfaatnya dalam desain perangkat lunak
+-   Mengimplementasikan Strategy Pattern dalam bahasa pemrograman Java.
+-   Mampu mengidentifikasi situasi yang cocok untuk penggunaan Strategy Pattern
 
 ## Deskripsi
+
 Strategy Pattern adalah sebuah pola desain (design pattern) dalam pemrograman yang memungkinkan definisi serangkaian algoritma terpisah, mengenkapsulasi setiap algoritma, dan membuatnya dapat saling bertukar secara dinamis sesuai kebutuhan. Pola ini memisahkan algoritma dari kelas yang menggunakannya, sehingga memungkinkan perubahan algoritma tanpa mengubah kelas klien yang memanfaatkannya.
 
 Dalam Strategy Pattern, algoritma diimplementasikan sebagai objek terpisah yang disebut strategi (strategy). Kelas klien yang menggunakan algoritma memiliki referensi ke salah satu objek strategi tersebut, dan menggunakan strategi tersebut untuk mengeksekusi algoritma tertentu.
 
 Dengan menggunakan Strategy Pattern, kita dapat mencapai beberapa keuntungan, antara lain:
-- Fleksibilitas: Kita dapat dengan mudah mengganti algoritma yang digunakan oleh kelas klien tanpa mempengaruhi struktur kelas klien tersebut.
-- Pemisahan Kode: Algoritma-algoritma yang berbeda dienkapsulasi secara terpisah, sehingga memisahkan tanggung jawab dan mempermudah pemeliharaan serta pengembangan kode.
-- Mudah diuji: Memisahkan algoritma ke dalam objek terpisah memungkinkan pengujian yang lebih mudah, karena setiap algoritma dapat diuji secara terpisah.
-Kode yang dapat digunakan kembali(reusable): Objek strategi dapat digunakan kembali dalam berbagai konteks yang berbeda, tanpa perlu mengubah kelas klien.
-Dengan demikian, Strategy Pattern sangat berguna ketika kita memiliki serangkaian algoritma yang berbeda dan perlu memilih algoritma yang sesuai secara dinamis, atau ketika kita ingin meningkatkan fleksibilitas dan pemeliharaan kode dalam pengembangan perangkat lunak.
+
+-   Fleksibilitas: Kita dapat dengan mudah mengganti algoritma yang digunakan oleh kelas klien tanpa mempengaruhi struktur kelas klien tersebut.
+-   Pemisahan Kode: Algoritma-algoritma yang berbeda dienkapsulasi secara terpisah, sehingga memisahkan tanggung jawab dan mempermudah pemeliharaan serta pengembangan kode.
+-   Mudah diuji: Memisahkan algoritma ke dalam objek terpisah memungkinkan pengujian yang lebih mudah, karena setiap algoritma dapat diuji secara terpisah.
+    Kode yang dapat digunakan kembali(reusable): Objek strategi dapat digunakan kembali dalam berbagai konteks yang berbeda, tanpa perlu mengubah kelas klien.
+    Dengan demikian, Strategy Pattern sangat berguna ketika kita memiliki serangkaian algoritma yang berbeda dan perlu memilih algoritma yang sesuai secara dinamis, atau ketika kita ingin meningkatkan fleksibilitas dan pemeliharaan kode dalam pengembangan perangkat lunak.
 
 ## Langkah Kerja
+
 ### Tahap 1. Menggunakan Inheritance
+
 1. Buat kelas Duck sebagai kelas dasar untuk semua jenis bebek
 2. Buat kelas-kelas yang mewarisi Duck, seperti MallardDuck, RedheadDuck, dan lain-lain.
 3. Implementasikan perilaku bersuara dan terbang secara langsung dalam masing-masing kelas turunan.
+
 ```
 abstract class Duck {
     void quack() {
@@ -92,19 +98,24 @@ class WoodenDuck extends Duck{
     }
 }
 ```
+
 > Analisis:
-> - Pendekatan ini cukup sederhana dan mudah dipahami.
-> - Menggunakan pewarisan (inheritance) untuk membagikan perilaku antara kelas induk dan anak.
-> - Setiap bebek memiliki perilaku bersuara dan terbang yang sama dengan bebek lainnya.
+>
+> -   Pendekatan ini cukup sederhana dan mudah dipahami.
+> -   Menggunakan pewarisan (inheritance) untuk membagikan perilaku antara kelas induk dan anak.
+> -   Setiap bebek memiliki perilaku bersuara dan terbang yang sama dengan bebek lainnya.
 
 > Kekurangan:
-> - Ketika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut harus diterapkan di semua kelas turunan, yang dapat merepotkan dan memerlukan perubahan pada banyak bagian kode.
-> - Tidak ada fleksibilitas dalam mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
+>
+> -   Ketika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut harus diterapkan di semua kelas turunan, yang dapat merepotkan dan memerlukan perubahan pada banyak bagian kode.
+> -   Tidak ada fleksibilitas dalam mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
 
 ### Tahap 2. Menggunakan Interface. (Rubah kode pada tahap 1 menjadi seperti berikut)
+
 1. Buat sebuah interface Quackable untuk perilaku bersuara.
 2. Buat sebuah interface Flyable untuk perilaku terbang.
 3. Implementasikan kedua interface tersebut dalam kelas Duck dan kelas-kelas turunannya.
+
 ```
 interface Quackable {
     void quack();
@@ -185,10 +196,13 @@ class ToyDuck extends Duck implements Flyable {
     }
 }
 ```
+
 Dalam skenarion ini:
-- MallardDuck mengimplementasikan kedua antarmuka Quackable dan Flyable, memungkinkannya untuk bersuara quack dan terbang.
-- RubberDuck hanya mengimplementasikan Quackable, karena tidak boleh terbang.
-- WoodenDuck tidak mengimplementasikan antarmuka ini, mengimplikasikan bahwa ia tidak bersuara quack atau terbang. Sekarang, katakanlah kita memperkenalkan jenis bebek baru, ToyDuck, yang mirip dengan RubberDuck tetapi juga bisa terbang.
+
+-   MallardDuck mengimplementasikan kedua antarmuka Quackable dan Flyable, memungkinkannya untuk bersuara quack dan terbang.
+-   RubberDuck hanya mengimplementasikan Quackable, karena tidak boleh terbang.
+-   WoodenDuck tidak mengimplementasikan antarmuka ini, mengimplikasikan bahwa ia tidak bersuara quack atau terbang. Sekarang, katakanlah kita memperkenalkan jenis bebek baru, ToyDuck, yang mirip dengan RubberDuck tetapi juga bisa terbang.
+
 ```
 class ToyDuck extends Duck implements Flyable {
     public void fly() {
@@ -196,20 +210,26 @@ class ToyDuck extends Duck implements Flyable {
     }
 }
 ```
+
 Dalam kasus ini, kita harus menduplikasi implementasi metode fly() dari Flyable baik di ToyDuck maupun MallardDuck. Ini karena antarmuka Java tidak mengizinkan penggunaan ulang kode, dan setiap kelas yang mengimplementasikan sebuah antarmuka harus memberikan implementasi sendiri. Duplikasi ini melanggar prinsip penggunaan code reuse, karena kita harus mengulang kode yang sama di beberapa tempat, meningkatkan overhead pemeliharaan dan kemungkinan memperkenalkan bug.Selain itu, jika perilaku fly() perlu diubah suatu saat, kita harus memperbarui di beberapa tempat, yang dapat berpotensi menyebabkan kesalahan dan membutuhkan waktu yang lebih lama.
+
 > Analisis:
-> - Menggunakan interface untuk mendefinisikan perilaku bersuara dan terbang membuat kode lebih modular.
-> - Menerapkan polimorfisme dengan menggunakan interface, yang memungkinkan berbagai implementasi perilaku bersuara dan terbang.
-> - Kelas turunan dapat mengimplementasikan lebih dari satu perilaku bersuara atau terbang jika diperlukan.
+>
+> -   Menggunakan interface untuk mendefinisikan perilaku bersuara dan terbang membuat kode lebih modular.
+> -   Menerapkan polimorfisme dengan menggunakan interface, yang memungkinkan berbagai implementasi perilaku bersuara dan terbang.
+> -   Kelas turunan dapat mengimplementasikan lebih dari satu perilaku bersuara atau terbang jika diperlukan.
 
 > Kekurangan:
-> - Masih terbatas dalam fleksibilitas saat ingin mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
-> - Jika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut masih perlu diterapkan pada semua kelas turunan yang terkait.
+>
+> -   Masih terbatas dalam fleksibilitas saat ingin mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
+> -   Jika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut masih perlu diterapkan pada semua kelas turunan yang terkait.
 
 ### Tahap 3. Menggunakan Strategy Pattern (Rubah kode pada tahap 2 menjadi seperti berikut)
+
 1. Buat sebuah interface QuackBehavior untuk perilaku bersuara.
 2. Buat sebuah interface FlyBehavior untuk perilaku terbang.
 3. Implementasikan kelas-kelas konkrit yang mengimplementasikan interface-interface tersebut.
+
 ```
 interface QuackBehavior {
     void quack();
@@ -342,14 +362,18 @@ class ModelDuck extends Duck {
     }
 }
 ```
+
 > Analisis:
-> - Menerapkan Strategy Pattern memungkinkan kita untuk  > > > > - memisahkan perilaku bersuara dan terbang menjadi objek terpisah.
-> - Fleksibilitas tinggi dalam mengubah perilaku bersuara atau terbang pada saat runtime dengan mudah.
-> - Memungkinkan penggunaan berbagai macam perilaku bersuara dan terbang tanpa perubahan pada kelas bebek.
-> Kekurangan:
-> - Memperkenalkan kompleksitas tambahan ke dalam kode karena memerlukan lebih banyak kelas dan objek untuk mengelola strategi-strategi perilaku.
-> - Dapat menjadi terlalu abstrak untuk aplikasi sederhana, yang dapat menyulitkan pemahaman bagi pengembang yang kurang berpengalaman.
+>
+> -   Menerapkan Strategy Pattern memungkinkan kita untuk > > > > - memisahkan perilaku bersuara dan terbang menjadi objek terpisah.
+> -   Fleksibilitas tinggi dalam mengubah perilaku bersuara atau terbang pada saat runtime dengan mudah.
+> -   Memungkinkan penggunaan berbagai macam perilaku bersuara dan terbang tanpa perubahan pada kelas bebek.
+>     Kekurangan:
+> -   Memperkenalkan kompleksitas tambahan ke dalam kode karena memerlukan lebih banyak kelas dan objek untuk mengelola strategi-strategi perilaku.
+> -   Dapat menjadi terlalu abstrak untuk aplikasi sederhana, yang dapat menyulitkan pemahaman bagi pengembang yang kurang berpengalaman.
+
 ### Pada file Main.java, isikan kode berikut
+
 ```
 public class Main {
     public static void main(String[] args) {
@@ -364,3 +388,144 @@ public class Main {
     }
 }
 ```
+
+# Tugas 01 - Shipping
+
+### Kasus: Pengiriman Pesanan
+
+### Deskripsi
+Bayangkan Anda memiliki sebuah aplikasi e-commerce sederhana yang
+memungkinkan pengguna untuk memesan barang secara online. Setiap kali
+pengguna menyelesaikan pembelian, Anda perlu mengatur pengiriman barang
+sesuai dengan pilihan yang mereka buat, misalnya pengiriman reguler, ekspres,
+atau pengambilan langsung di toko (pick-up).
+
+### Tanpa Strategy Pattern:
+Tanpa Strategi Pattern, sistem akan menjadi kaku dan sulit diubah, Setiap kali
+ingin menambahkan algoritma baru, programmer harus mengubah kode sumber
+secara langsung. Hal ini dapat menyebabkan bug dan masalah kompabilitas.
+
+### Contoh Kode:
+```
+Tanpa Strategi Pattern
+public class TanpaStrategi {
+   private String metodePengiriman;
+
+   public TanpaStrategi(String metodePengiriman) {
+       this.metodePengiriman = metodePengiriman;
+   }
+
+   public void prosesPengiriman() {
+       if (metodePengiriman.equals("reguler")) {
+           kirimDenganPengirimanReguler();
+       } else if (metodePengiriman.equals("ekspres")) {
+           kirimDenganPengirimanEkspres();
+       } else if (metodePengiriman.equals("ambil_sendiri")) {
+           ambilSendiri();
+       } else {
+           System.out.println("Metode pengiriman tidak valid.");
+       }
+   }
+
+   private void kirimDenganPengirimanReguler() {
+       System.out.println("Barang dikirim dengan pengiriman reguler.");
+   }
+
+   private void kirimDenganPengirimanEkspres() {
+       System.out.println("Barang dikirim dengan pengiriman ekspres.");
+   }
+
+   private void ambilSendiri() {
+       System.out.println("Barang akan diambil langsung di toko.");
+   }
+}
+```
+
+```
+public static void main(String[] args) {
+    Pesanan pesanan1 = new Pesanan("reguler");
+    pesanan1.prosesPengiriman();
+
+    Pesanan pesanan2 = new Pesanan("ekspres");
+    pesanan2.prosesPengiriman();
+
+    Pesanan pesanan3 = new Pesanan("ambil_sendiri");
+    pesanan3.prosesPengiriman();
+}
+```
+
+### Masalah:
+> 1 Kode menjadi kaku dan sulit diubah
+> 2 Sulit untuk menambahkan algoritma baru
+> 3 Berpotensi menimbulkan bug dan masalah kompabilitas
+
+### Solusi
+Dengan menggunakan Strategy Pattern, Anda dapat dengan mudah menambahkan
+atau mengubah metode-metode pengiriman tanpa harus mengubah kelas-kelas
+yang sudah ada atau mengganggu logika bisnis utama Anda. Ini membuat kode
+lebih terstruktur, mudah dimengerti, dan mudah dipelihara.
+
+### Contoh Kode
+
+```
+interface MetodePengiriman {
+    void kirim();
+}
+
+class PengirimanEkspres implements MetodePengiriman {
+    @Override
+    public void kirim() {
+        System.out.println("Barang dikirim dengan pengiriman ekspres.");
+    }
+}
+
+class PengirimanReguler implements MetodePengiriman {
+    @Override
+    public void kirim() {
+        System.out.println("Barang dikirim dengan pengiriman reguler.");
+    }
+}
+
+class AmbilSendiri implements MetodePengiriman {
+    @Override
+    public void kirim() {
+        System.out.println("Barang akan diambil langsung di toko.");
+    }
+}
+
+class Pesanan {
+    private MetodePengiriman metodePengiriman;
+
+    public Pesanan(MetodePengiriman metodePengiriman) {
+        this.metodePengiriman = metodePengiriman;
+    }
+
+    public void aturMetodePengiriman(MetodePengiriman metodePengiriman) {
+        this.metodePengiriman = metodePengiriman;
+    }
+
+    public void prosesPengiriman() {
+        metodePengiriman.kirim();
+    }
+}
+
+class Shipping {
+    public static void main(String[] args) {
+        Pesanan pesanan1 = new Pesanan(new PengirimanReguler());
+        pesanan1.prosesPengiriman();
+
+        Pesanan pesanan2 = new Pesanan(new PengirimanEkspres());
+        pesanan2.prosesPengiriman();
+
+        Pesanan pesanan3 = new Pesanan(new AmbilSendiri());
+        pesanan3.prosesPengiriman();
+    }
+}
+```
+
+### Analisa
+> 1. Interface MetodePengiriman:
+>   - Interface ini bertanggung jawab untuk mendefinisikan kontrak untuk semua strategi pengiriman.
+>   - Ini memungkinkan berbagai metode pengiriman untuk diimplementasikan secara terpisah dan dipilih secara dinamis.
+> 2. Kelas-kelas Konkrit untuk Setiap Metode Pengiriman:
+>   - Setiap kelas yang mengimplementasikan MetodePengiriman mewakili sebuah strategi pengiriman spesifik.
