@@ -13,3 +13,31 @@ abstract class Duck {
         System.out.println("Terbang");
     }
 }
+
+class MallardDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan MallardDuck");
+    }
+}
+
+class RedHeadDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan RedHeadDuck");
+    }
+}
+
+class RubberDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan RubberDuck");
+    }
+}
+
+class WoodenDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan WoodenDuck");
+    }
+}

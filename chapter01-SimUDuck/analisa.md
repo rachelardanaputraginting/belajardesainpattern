@@ -20,3 +20,4 @@ Dengan demikian, Strategy Pattern sangat berguna ketika kita memiliki serangkaia
 ## Langkah Kerja
 ### Tahap 1. Menggunakan Inheritance
 1. Buat kelas Duck sebagai kelas dasar untuk semua jenis bebek
+2. Buat kelas-kelas yang mewarisi Duck, seperti MallardDuck, RedheadDuck, dan lain-lain.
