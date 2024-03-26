@@ -21,3 +21,82 @@ Dengan demikian, Strategy Pattern sangat berguna ketika kita memiliki serangkaia
 ### Tahap 1. Menggunakan Inheritance
 1. Buat kelas Duck sebagai kelas dasar untuk semua jenis bebek
 2. Buat kelas-kelas yang mewarisi Duck, seperti MallardDuck, RedheadDuck, dan lain-lain.
+3. Implementasikan perilaku bersuara dan terbang secara langsung dalam masing-masing kelas turunan.
+```
+abstract class Duck {
+    void quack() {
+        System.out.println("Qwek Qwek");
+    }
+
+    void swim() {
+        System.out.println("Berenang");
+    }
+
+    abstract void display();
+
+    void fly(){
+        System.out.println("Terbang");
+    }
+}
+
+class MallardDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan MallardDuck");
+    }
+}
+
+class RedHeadDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan RedHeadDuck");
+    }
+}
+
+class RubberDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan RubberDuck");
+    }
+
+    @Override
+    void quack() {
+        System.out.println("Bunyinya squeek, bukan qwak");
+    }
+
+    @Override
+    void fly() {
+        // Tidak ada implementasi, karena bebek mainan tidak dapat terbang
+    }
+}
+
+class WoodenDuck extends Duck{
+    @Override
+    void display() {
+        System.out.println("Tampilan WoodenDuck");
+    }
+
+    @Override
+    void quack() {
+        // Tidak ada implementasi, karena bebek kayu tidak dapat bersuara
+    }
+
+    @Override
+    void swim() {
+        System.out.println("Mengambang");
+    }
+
+    @Override
+    void fly() {
+        // Tidak ada impementasi karena bebek kayu tidak dapat terbang
+    }
+}
+```
+> Analisis:
+> - Pendekatan ini cukup sederhana dan mudah dipahami.
+> - Menggunakan pewarisan (inheritance) untuk membagikan perilaku antara kelas induk dan anak.
+> - Setiap bebek memiliki perilaku bersuara dan terbang yang sama dengan bebek lainnya.
+
+> Kekurangan:
+> - Ketika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut harus diterapkan di semua kelas turunan, yang dapat merepotkan dan memerlukan perubahan pada banyak bagian kode.
+> - Tidak ada fleksibilitas dalam mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
