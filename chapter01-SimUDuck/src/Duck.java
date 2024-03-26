@@ -24,7 +24,7 @@ class MuteQuack implements QuackBehavior {
     }
 }
 
-class FlyWithWIngs implements FlyBehavior {
+class FlyWithWings implements FlyBehavior {
     public void fly() {
         System.out.println("Terbang");
     }
@@ -36,7 +36,7 @@ class FlyNoWay implements FlyBehavior {
     }
 }
 
-class FlyWithRockerPower implements FlyBehavior {
+class FlyWithRocketPower implements FlyBehavior {
     @Override
     public void fly() {
         System.out.println("Cool, terbang menggunakan rocket");
@@ -44,14 +44,38 @@ class FlyWithRockerPower implements FlyBehavior {
 }
 
 abstract class Duck {
+    QuackBehavior quackBehavior;
+    FlyBehavior flyBehavior;
+
+    abstract void display();
+
     void swim() {
         System.out.println("Berenang");
     }
 
-    abstract void display();
+   void performQuack() {
+        quackBehavior.quack();
+   }
+
+   void performFly() {
+    flyBehavior.fly();
+   }
+
+   void setFlyBehavior(FlyBehavior fb) {
+    flyBehavior = fb;
+   }
+
+   void setQuackBehavior(QuackBehavior qb) {
+    quackBehavior = qb;
+   }
 }
 
 class MallardDuck extends Duck {
+    public MallardDuck() {
+        quackBehavior = new Quack();
+        flyBehavior = new FlyWithWings();
+    }
+
     @Override
     void display() {
         System.out.println("Tampilan MallardDuck");
@@ -59,6 +83,10 @@ class MallardDuck extends Duck {
 }
 
 class RedHeadDuck extends Duck {
+    public RedHeadDuck() {
+        quackBehavior = new Quack();
+        flyBehavior = new FlyWithWings();
+    }
 
     @Override
     void display() {
@@ -67,6 +95,11 @@ class RedHeadDuck extends Duck {
 }
 
 class RubberDuck extends Duck {
+    public RubberDuck() {
+        quackBehavior = new Squeak();
+        flyBehavior = new FlyNoWay();
+    }
+
     @Override
     void display() {
         System.out.println("Tampilan RubberDuck");
@@ -74,13 +107,22 @@ class RubberDuck extends Duck {
 }
 
 class WoodenDuck extends Duck {
+    public WoodenDuck() {
+        quackBehavior = new Quack();
+        flyBehavior = new FlyNoWay();
+    }
+
     @Override
     void display() {
         System.out.println("Tampilan WoodenDuck");
     }
 }
 
-class ToyDuck extends Duck {
+class ModelDuck extends Duck {
+    ModelDuck() {
+        quackBehavior = new Quack();
+        flyBehavior = new FlyNoWay();
+    }
     @Override
     void display() {
         System.out.println("Tampilan ToyDuck");
