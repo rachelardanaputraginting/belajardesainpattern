@@ -205,3 +205,6 @@ Dalam kasus ini, kita harus menduplikasi implementasi metode fly() dari Flyable 
 > Kekurangan:
 > - Masih terbatas dalam fleksibilitas saat ingin mengubah perilaku bersuara atau terbang secara dinamis pada saat runtime.
 > - Jika ada perubahan pada perilaku bersuara atau terbang, perubahan tersebut masih perlu diterapkan pada semua kelas turunan yang terkait.
+
+### Tahap 3. Menggunakan Strategy Pattern (Rubah kode pada tahap 2 menjadi seperti berikut)
+1. Buat sebuah interface QuackBehavior untuk perilaku bersuara.
