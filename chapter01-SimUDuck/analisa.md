@@ -28,7 +28,7 @@ Dengan menggunakan Strategy Pattern, kita dapat mencapai beberapa keuntungan, an
 2. Buat kelas-kelas yang mewarisi Duck, seperti MallardDuck, RedheadDuck, dan lain-lain.
 3. Implementasikan perilaku bersuara dan terbang secara langsung dalam masing-masing kelas turunan.
 
-```
+```java
 abstract class Duck {
     void quack() {
         System.out.println("Qwek Qwek");
@@ -116,7 +116,7 @@ class WoodenDuck extends Duck{
 2. Buat sebuah interface Flyable untuk perilaku terbang.
 3. Implementasikan kedua interface tersebut dalam kelas Duck dan kelas-kelas turunannya.
 
-```
+```java
 interface Quackable {
     void quack();
 }
@@ -203,7 +203,7 @@ Dalam skenarion ini:
 -   RubberDuck hanya mengimplementasikan Quackable, karena tidak boleh terbang.
 -   WoodenDuck tidak mengimplementasikan antarmuka ini, mengimplikasikan bahwa ia tidak bersuara quack atau terbang. Sekarang, katakanlah kita memperkenalkan jenis bebek baru, ToyDuck, yang mirip dengan RubberDuck tetapi juga bisa terbang.
 
-```
+```java
 class ToyDuck extends Duck implements Flyable {
     public void fly() {
         System.out.println("Terbang seperti mainan");
@@ -230,7 +230,7 @@ Dalam kasus ini, kita harus menduplikasi implementasi metode fly() dari Flyable 
 2. Buat sebuah interface FlyBehavior untuk perilaku terbang.
 3. Implementasikan kelas-kelas konkrit yang mengimplementasikan interface-interface tersebut.
 
-```
+```java
 interface QuackBehavior {
     void quack();
 }
@@ -374,7 +374,7 @@ class ModelDuck extends Duck {
 
 ### Pada file Main.java, isikan kode berikut
 
-```
+```java
 public class Main {
     public static void main(String[] args) {
         Duck mallard = new MallardDuck();
@@ -406,7 +406,7 @@ ingin menambahkan algoritma baru, programmer harus mengubah kode sumber
 secara langsung. Hal ini dapat menyebabkan bug dan masalah kompabilitas.
 
 ### Contoh Kode:
-```
+```java
 Tanpa Strategi Pattern
 public class TanpaStrategi {
    private String metodePengiriman;
@@ -441,7 +441,7 @@ public class TanpaStrategi {
 }
 ```
 
-```
+```java
 public static void main(String[] args) {
     Pesanan pesanan1 = new Pesanan("reguler");
     pesanan1.prosesPengiriman();
@@ -467,7 +467,7 @@ lebih terstruktur, mudah dimengerti, dan mudah dipelihara.
 
 ### Contoh Kode
 
-```
+```java
 interface MetodePengiriman {
     void kirim();
 }

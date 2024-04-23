@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dd9b0fa-c549-468f-9e70-11e770432656" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/chapter01-strategy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chapter01-SimUDuck/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="7dd9b0fa-c549-468f-9e70-11e770432656" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +11,7 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/chapter01-SimUDuck" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,7 +29,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/rachlapg/PNL/Semester 4/Praktikum Desain Pattern/belajardesainpattern/chapter01-SimUDuck"
+    "last_opened_file_path": "/home/rachlapg/PNL/Semester 4/Praktikum Desain Pattern/belajardesainpattern"
   }
 }]]></component>
   <component name="RecentsManager">
