@@ -3,10 +3,10 @@ import observer.User;
 
 public class Main {
     public static void main(String[] args) {
-        Channel ch = new Channel("Budi Setiawan Channel");
-        User user1 = new User("Wika Wika");
-        User user2 = new User("Jobot TV");
-        User user3 = new User("Jinjit Karunia");
+        Channel ch = new Channel("RAJARTAN Programming Channel");
+        User user1 = new User("WPU Unpas");
+        User user2 = new User("Programmer Zaman Now");
+        User user3 = new User("Parsinta");
 
         ch.addSubscriber(user1);
         ch.addSubscriber(user3);
