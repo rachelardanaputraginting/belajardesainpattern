@@ -213,7 +213,7 @@ class BookSummaryService {
     }
 }
 
-class CloseOpen {
+class OpenClose {
     public static void main(String[] args) {
         BookRepo bookRepo = new BookRepoImpl(); // Implementasi konkret dari BookRepo
         BookSummaryService summaryService = new BookSummaryService(bookRepo);
